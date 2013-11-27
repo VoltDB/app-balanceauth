@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>app-balanceauth by VoltDB</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>app-balanceauth</h1>
+        <p>Example application showing auth and debit of pre-paid balances</p>
+
+        <p class="view"><a href="https://github.com/VoltDB/app-balanceauth">View the Project on GitHub <small>VoltDB/app-balanceauth</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/VoltDB/app-balanceauth/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/VoltDB/app-balanceauth/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/VoltDB/app-balanceauth">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="readme-for-voltdb-stored-value-card-application" class="anchor" href="#readme-for-voltdb-stored-value-card-application"><span class="octicon octicon-link"></span></a>README for VoltDB stored value card application</h1>
+
+<p>This application performs high velocity transaction processing for stored value cards.  These transactions include:</p>
+
+<ul>
+<li>Pre-Authorizations, where the available balance is checked if sufficient and then modified, but the purchase is not completed.</li>
+<li>Purchase, where the previously-authorized purchase is completed</li>
+<li>Transfer, where a balance transfer is made between two cards.</li>
+</ul><p>The code is divided into two projects.  Under the "db" directory is the database project, which contains the schema, stored procedures and other configurations that are compiled into a catalog and run in a VoltDB database.  Under the "client" directory is a java client that loads a set of cards and then generates random card transactions a high velocity to simulate card activity.</p>
+
+<p>See below for instructions on running these applications.  For any questions, 
+please contact <a href="mailto:fieldengineering@voltdb.com">fieldengineering@voltdb.com</a>.</p>
+
+<h2>
+<a name="database-application" class="anchor" href="#database-application"><span class="octicon octicon-link"></span></a>Database application</h2>
+
+<p>The database application must be started first.  It can be run from the command line
+or the catalog file can be deployed using VoltDB Enterprise Manager which is
+provided with VoltDB Enterprise Edition.</p>
+
+<p>To build and run the database application:</p>
+
+<pre><code>cd db
+./run.sh
+</code></pre>
+
+<p>Optionally, you can just compile or build the catalog with the following commands</p>
+
+<pre><code>./run.sh srccompile
+./run.sh catalog
+</code></pre>
+
+<p>You can remove the compiled code with:</p>
+
+<pre><code>./run.sh clean
+</code></pre>
+
+<p>To configure for more than 1 node, edit the deployment.xml file.  Basic instructions
+are in Using VoltDB, Section 6.1, and all the options for the deploymen file are described
+in Appendix D.</p>
+
+<h2>
+<a name="client-application" class="anchor" href="#client-application"><span class="octicon octicon-link"></span></a>Client application</h2>
+
+<p>To build and run the database application:</p>
+
+<pre><code>cd client
+./run.sh
+</code></pre>
+
+<p>Optionally, you can just compile with the following commands</p>
+
+<pre><code>./run.sh srccompile
+</code></pre>
+
+<p>You can run the benchmark with:</p>
+
+<pre><code>./run.sh benchmark
+</code></pre>
+
+<p>You may want to edit the parameters for the benchmark.  To do this, edit the run.sh file, under
+the section "function benchmark()".</p>
+
+<p>You can remove the compiled code with:</p>
+
+<pre><code>./run.sh clean
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/VoltDB">VoltDB</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
