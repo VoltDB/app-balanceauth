@@ -1,3 +1,26 @@
+/* This file is part of VoltDB.
+ * Copyright (C) 2008-2015 VoltDB Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 package procedures;
 
 //import java.math.BigDecimal;
@@ -19,7 +42,7 @@ import org.voltdb.types.TimestampType;
  * defined to accept one or more parameters. These parameters take the
  * values the client passes via the
  * Client.callProcedure invocation.
- * The VoltDB User Guide (https://community.voltdb.com/documentation) 
+ * The VoltDB User Guide (https://community.voltdb.com/documentation)
  * specifies valid stored procedure definitions,
  * including valid run method parameter types, required annotation
  * metadata, and correct use the Volt query interface.
@@ -82,7 +105,7 @@ public class Transfer extends VoltProcedure {
 
 
 	VoltTable accts[] = voltExecuteSQL(true);
-	
+
 	VoltTableRow from_acct = accts[0].fetchRow(0);
 	int from_available = (int)from_acct.getLong(1);
         double from_balance = from_acct.getDouble(3);

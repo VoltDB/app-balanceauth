@@ -1,11 +1,5 @@
-package client;
-
 /* This file is part of VoltDB.
- * Copyright (C) 2008-2013 VoltDB Inc.
- * 
- * This file contains original code and/or modifications of original code.
- * Any modifications made by VoltDB Inc. are licensed under the following
- * terms and conditions:
+ * Copyright (C) 2008-2015 VoltDB Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -26,6 +20,8 @@ package client;
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
+
+package client;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -186,7 +182,7 @@ public abstract class BaseBenchmark {
                 stats.getInvocationAborts(), stats.getInvocationErrors());
 
         // cast to stats.getAverageLatency from long to double
-        System.out.printf("Avg/95%% Latency %.2f/%dms\n", 
+        System.out.printf("Avg/95%% Latency %.2f/%dms\n",
                           (double)stats.getAverageLatency(),
                           stats.kPercentileLatency(0.95));
 
